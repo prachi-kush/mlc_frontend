@@ -21,7 +21,7 @@ A clean, functional chat interface for the FastAPI chatbot backend, specialized 
 
 1. **Install dependencies:**
    ```bash
-   cd /home/cis/gerard_backend/frontend
+   cd frontend_path
    pip install -r requirements.txt
    ```
 
@@ -29,31 +29,22 @@ A clean, functional chat interface for the FastAPI chatbot backend, specialized 
 
 ### Step 1: Start the FastAPI Backend
 ```bash
-cd /home/cis/gerard_backend
+cd backend_path
 source venv/bin/activate
-python main.py
+python run.py
 ```
 The backend should be running on `http://127.0.0.1:8000`
 
-### Step 2: Start the Streamlit Frontend
-
-#### Local Access Only:
-```bash
-cd /home/cis/gerard_backend/frontend
-streamlit run chat_ui.py
-```
-Access at: `http://localhost:8501`
-
 #### Network Access (Option 1 - Standard Port):
 ```bash
-cd /home/cis/gerard_backend/frontend
+cd frontend_path
 streamlit run chat_ui.py --server.address 0.0.0.0 --server.port 8501
 ```
 Clients access at: `http://YOUR_SERVER_IP:8501`
 
 #### Network Access (Option 2 - Web Port):
 ```bash
-cd /home/cis/gerard_backend/frontend
+cd frontend_path
 streamlit run chat_ui.py --server.address 0.0.0.0 --server.port 80
 ```
 Clients access at: `http://YOUR_SERVER_IP` (may require sudo for port 80)
@@ -73,24 +64,6 @@ The frontend connects to the FastAPI backend via:
 - **Payload**: `{"query": "your question here"}`
 - **Response**: JSON with answer and processing time
 
-## Client Access Configuration
-
-### For Network Access (Free Options):
-1. **Update FastAPI allowed IPs** in `/home/cis/gerard_backend/main.py` line 32:
-   ```python
-   ALLOWED_IPS = {"127.0.0.1", "::1", "CLIENT_IP_1", "CLIENT_IP_2"}
-   ```
-
-2. **Configure Firewall** to allow ports:
-   - Port 8000 (FastAPI backend)
-   - Port 8501 or 80 (Streamlit frontend)
-
-3. **Get your server IP**:
-   ```bash
-   ip addr show
-   ```
-
-## Troubleshooting
 
 ### Backend Not Available
 - Ensure the FastAPI server is running: `source venv/bin/activate && python main.py` in the backend directory

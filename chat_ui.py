@@ -13,7 +13,7 @@ st.set_page_config(
 
 # Backend API configuration  
 # API_BASE_URL = "http://127.0.0.1:8000"
-API_BASE_URL = "http://192.168.0.18:8080"
+API_BASE_URL = "http://192.168.0.18:8080" # Update with your FastAPI server URL
 
 
 CHAT_ENDPOINT = f"{API_BASE_URL}/query-response"

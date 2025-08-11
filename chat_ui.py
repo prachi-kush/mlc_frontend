@@ -10,7 +10,9 @@ st.set_page_config(
 )
 
 # Backend API configuration
-API_BASE_URL = "http://192.168.0.18:8080"
+# API_BASE_URL = "http://192.168.0.18:8080"
+API_BASE_URL = "http://aqai8080.elb.cisinlive.com"
+
 CHAT_ENDPOINT = f"{API_BASE_URL}/query-response"
 
 def check_api_health():
